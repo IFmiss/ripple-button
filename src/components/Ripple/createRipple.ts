@@ -35,8 +35,8 @@ export default function createRipple (ele: HTMLElement | null, color: string = '
   
     const remove = () => {
       if (!ele) return
-      ele.removeEventListener('mouseup', remove);
-      ele.removeEventListener('mouseout', remove);
+      ele.removeEventListener('mouseup', remove, true);
+      ele.removeEventListener('mouseout', remove, true);
 
       (rippleInstance.fadeoutAnimateEle as any).beginElement();
   
@@ -49,8 +49,8 @@ export default function createRipple (ele: HTMLElement | null, color: string = '
       }, durantion)
     }
 
-    ele.addEventListener('mouseup', remove);
-    ele.addEventListener('mouseout', remove);
+    ele.addEventListener('mouseup', remove, true);
+    ele.addEventListener('mouseout', remove, true);
   }
 
   ele && ele.addEventListener('mousedown', init)

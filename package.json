@@ -1,6 +1,6 @@
 {
   "name": "ripple-button",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "ripple-button",
   "author": "ifmiss",
   "main": "dist/index.js",

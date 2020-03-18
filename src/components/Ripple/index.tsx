@@ -8,7 +8,7 @@ import createRipple, {
 } from './createRipple'
 import './index.less'
 
-interface IRippleProps {
+interface IRippleProps extends React.HTMLAttributes<HTMLDivElement> {
   color?: string;
   duration?: number;
 }
@@ -22,7 +22,9 @@ const Ripple: React.FC<IRippleProps> = (props) => {
   }, [ele])
 
   return (
-    <div className='react-ripple-container' ref={ele}>
+    <div className='react-ripple-container'
+         ref={ele}
+         {...props}>
       { props.children }
     </div>
   )
