@@ -11,11 +11,20 @@
     "build": "webpack --progress --config ./config/webpack.prod.js",
     "tsc": "tsc"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IFmiss/ripple-button.git"
+  },
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
+  "keywords": [
+    "button",
+    "ripple",
+    "react-ripple"
+  ],
   "files": [
     "dist/index.js",
     "dist/components/Ripple/",
