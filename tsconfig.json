@@ -41,7 +41,7 @@
     "./src",
   ],
   "files": [
-    "./src/components/Ripple/main.tsx"
+    "./src/components/Ripple/index.tsx"
   ],
   "exclude": [
     "./tsfile",
