@@ -7,24 +7,32 @@ import createRipple, {
   DEFAULT_COLOR
 } from './createRipple'
 import './index.less'
+import PropTypes from 'prop-types';
 
 interface IRippleProps extends React.HTMLAttributes<HTMLDivElement> {
   color?: string;
   duration?: number;
+  disabled?: boolean;
 }
 
 const Ripple: React.FC<IRippleProps> = (props) => {
-  const { color, duration } = props
-  const ele = useRef(null)
+  const {
+    color,
+    duration,
+    disabled
+  } = props;
+  const ele = useRef(null);
   
   useEffect(() => {
-    createRipple(ele.current, color, duration)
-  }, [ele])
+    if (!disabled) {
+      return createRipple(ele.current, color, duration);
+    }
+  }, [ele, disabled])
 
   return (
     <div className='react-ripple-container'
-         ref={ele}
-         {...props}>
+      ref={ele}
+      {...props}>
       { props.children }
     </div>
   )
@@ -32,7 +40,14 @@ const Ripple: React.FC<IRippleProps> = (props) => {
 
 Ripple.defaultProps = {
   color: DEFAULT_COLOR,
-  duration: DEFAULT_DURATION
+  duration: DEFAULT_DURATION,
+  disabled: false
+}
+
+Ripple.propTypes = {
+  color: PropTypes.string,
+  duration: PropTypes.number,
+  disabled: PropTypes.bool
 }
 
 export const useRipple = createRipple

@@ -11,16 +11,16 @@ const devMode = process.env.NODE_ENV === "development"
 
 module.exports = {
   plugins: [
-    // new HtmlWebpackPlugin({
-    //   filename: 'index.html',
-    //   template: 'index.html',
-		// 	inject: true,
-		// 	title: "react-ripple",
-		// 	favicon: 'src/assets/favicon.ico',
-		// 	minify: {
-		// 		removeComments: true
-		// 	}
-    // }),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'index.html',
+			inject: true,
+			title: "react-ripple",
+			favicon: 'src/assets/favicon.ico',
+			minify: {
+				removeComments: true
+			}
+    }),
     // new MiniCssExtractPlugin ({
 		// 	filename: "css/[name]-[hash].css",
   	// 	chunkFilename: "css/[name]-[hash].css"

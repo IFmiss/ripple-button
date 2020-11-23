@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import Ripple, {
   IRipple
 } from './ripple'
@@ -15,6 +16,7 @@ export default function createRipple (ele: HTMLElement | null, color: string = '
 
   const init = (event: Event | any) => {
     let rippleInstance: IRipple
+    event.stopPropagation();
     if (!ele) return
     addClass(ele, 'react-ripple-wrapper')
     const {
@@ -53,5 +55,8 @@ export default function createRipple (ele: HTMLElement | null, color: string = '
     ele.addEventListener('mouseout', remove, true);
   }
 
-  ele && ele.addEventListener('mousedown', init)
+  ele?.addEventListener('mousedown', init);
+  return () => {
+    ele.removeEventListener('mousedown', init);
+  }
 }
